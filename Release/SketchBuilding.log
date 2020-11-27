@@ -1,0 +1,235 @@
+﻿生成启动时间为 2020/9/1 19:55:19。
+     1>项目“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\SketchBuilding\SketchBuilding.vcxproj”在节点 2 上(Build 个目标)。
+     1>QtRccSetDependencies:
+         "C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\bin\rcc.exe" --list "MainWindow.qrc" > "Release\rcc_list.txt" 2> nul
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\SketchBuilding.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:../boost/lib /LIBPATH:C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib /LIBPATH:../3rdparty/lib /LIBPATH:../lib /LIBPATH:"C:\local\boost_1_59_0\lib64-msvc-12.0" /LIBPATH:../opencv/lib /LIBPATH:../glew /LIBPATH:C:\dev\CGAL_lib\lib /LIBPATH:"C:\dev\CGAL-4.13.1\auxiliary\gmp\lib" /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64" C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\qtmain.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Core.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Gui.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5OpenGL.lib opengl32.lib glu32.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Widgets.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Xml.lib glew32.lib opencv_world300.lib "libboost_thread-vc120-mt-1_59.lib" "libboost_date_time-vc120-mt-1_58.lib" "CGAL-vc120-mt-4.13.1.lib" "CGAL_Core-vc120-mt-4.13.1.lib" "CGAL_ImageIO-vc120-mt-4.13.1.lib" "libgmp-10.lib" "libmpfr-4.lib" caffelib.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib cudart.lib cublas.lib curand.lib libprotobuf.lib hdf5_tools.lib hdf5_hl_fortran.lib hdf5_fortran.lib hdf5_hl_f90cstub.lib hdf5_f90cstub.lib hdf5_cpp.lib hdf5_hl_cpp.lib hdf5_hl.lib hdf5.lib leveldb.lib cublas_device.lib cuda.lib libglog.lib lmdb.lib libopenblas.dll.a libgflags.lib opencv_world345d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\SketchBuilding.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\SketchBuilding.lib" /MACHINE:X64 Release\Asset.obj
+         Release\BuildingSelector.obj
+         Release\Camera.obj
+         Release\CenterOperator.obj
+         Release\CGA.obj
+         Release\Circle.obj
+         Release\Classifier.obj
+         Release\ColorOperator.obj
+         Release\CompOperator.obj
+         Release\CopyOperator.obj
+         Release\CornerCutGableRoof.obj
+         Release\CornerCutOperator.obj
+         Release\CornerCutPrism.obj
+         Release\CornerCutRectangle.obj
+         Release\CornerCutTaper.obj
+         Release\Cuboid.obj
+         Release\Cylinder.obj
+         Release\CylinderSide.obj
+         Release\ExtrudeOperator.obj
+         Release\FaceSelector.obj
+         Release\GrammarDialog.obj
+         Release\Hemisphere.obj
+         Release\HemisphereOperator.obj
+         Release\InterpolationCamera.obj
+         Release\LayoutExtractor.obj
+         Release\GableRoof.obj
+         Release\GeneralObject.obj
+         Release\GLUtils.obj
+         Release\GLWidget3D.obj
+         Release\Grammar.obj
+         Release\GrammarParser.obj
+         Release\HipRoof.obj
+         Release\InnerCircleOperator.obj
+         Release\InnerSemiCircleOperator.obj
+         Release\InsertOperator.obj
+         Release\LeftWindowItemWidget.obj
+         Release\LShape.obj
+         Release\LShapePrism.obj
+         Release\LShapeTaper.obj
+         Release\MCMC.obj
+         Release\NumberEval.obj
+         Release\OBJLoader.obj
+         Release\OBJWriter.obj
+         Release\OffsetOperator.obj
+         Release\Polygon.obj
+         Release\Prism.obj
+         Release\Pyramid.obj
+         Release\PyramidOperator.obj
+         Release\Rectangle.obj
+         Release\RectangleTaper.obj
+         Release\Regression.obj
+         Release\main.obj
+         Release\MainWindow.obj
+         Release\RenderManager.obj
+         Release\RoofGableOperator.obj
+         Release\RoofHipOperator.obj
+         Release\RotateOperator.obj
+         Release\Scene.obj
+         Release\SemiCircle.obj
+         Release\SettingDialog.obj
+         Release\SetupProjectionOperator.obj
+         Release\Shader.obj
+         Release\ShadowMapping.obj
+         Release\Shape.obj
+         Release\ShapeLOperator.obj
+         Release\ShapeUOperator.obj
+         Release\SizeOperator.obj
+         Release\SplitOperator.obj
+         Release\TaperOperator.obj
+         Release\TextureOperator.obj
+         Release\TranslateOperator.obj
+         Release\UShape.obj
+         Release\UShapePrism.obj
+         Release\UShapeTaper.obj
+         Release\VBOUtil.obj
+         Release\qrc_MainWindow.obj
+         Release\moc_MainWindow.obj
+         Release\moc_GrammarDialog.obj
+         Release\moc_LeftWindowItemWidget.obj
+         Release\moc_SettingDialog.obj
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\blob.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\common.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\data_reader.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\data_transformer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\internal_thread.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\absval_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\accuracy_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\argmax_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\base_conv_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\base_data_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\bnll_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\bn_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\concat_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\contrastive_loss_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\conv_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\covariance_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\cudnn_conv_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\cudnn_pooling_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\cudnn_relu_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\cudnn_sigmoid_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\cudnn_softmax_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\cudnn_tanh_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\data_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\deconv_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\dropout_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\dummy_data_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\eltwise_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\embed_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\euclidean_loss_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\exp_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\filter_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\flatten_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\hdf5_data_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\hdf5_output_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\hinge_loss_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\im2col_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\image_data_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\infogain_loss_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\inner_product_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\insanity_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\local_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\log_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\loss_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\lrn_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\memory_data_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\multinomial_logistic_loss_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\mvn_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\neuron_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\normalize_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\pooling_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\power_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\prelu_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\reduction_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\relu_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\reshape_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\roi_pooling_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\sigmoid_cross_entropy_loss_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\sigmoid_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\silence_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\slice_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\smooth_L1_loss_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\softmax_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\softmax_loss_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\split_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\spp_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\tanh_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\threshold_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\tile_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\transformer_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\triplet_loss_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\window_data_layer.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\layer_factory.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\net.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\parallel.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\caffe.pb.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\solver.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\syncedmem.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\benchmark.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\blocking_queue.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\cudnn.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\db.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\db_leveldb.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\db_lmdb.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\force_link.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\hdf5.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\im2col.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\insert_splits.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\io.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\math_functions.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\mkstemp.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\signal_handler.obj"
+         "E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\caffelib\Release\upgrade_proto.obj"
+         正在生成代码
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\util\db.cpp(18): warning C4715: “caffe::db::GetDB”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(138): warning C4715: “caffe::GetSoftmaxLayer<float>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(69): warning C4715: “caffe::GetPoolingLayer<float>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(138): warning C4715: “caffe::GetSoftmaxLayer<double>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(69): warning C4715: “caffe::GetPoolingLayer<double>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(39): warning C4715: “caffe::GetConvolutionLayer<float>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(161): warning C4715: “caffe::GetTanHLayer<float>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(115): warning C4715: “caffe::GetSigmoidLayer<float>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(92): warning C4715: “caffe::GetReLULayer<float>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(39): warning C4715: “caffe::GetConvolutionLayer<double>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(161): warning C4715: “caffe::GetTanHLayer<double>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(115): warning C4715: “caffe::GetSigmoidLayer<double>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\src\caffe\layer_factory.cpp(92): warning C4715: “caffe::GetReLULayer<double>”: 不是所有的控件路径都返回值
+     1>e:\sketchbuilding\sketchbuilding-master\sketchbuilding-master\sketchbuilding\glwidget3d.cpp(760): warning C4715: “GLWidget3D::selectFace”: 不是所有的控件路径都返回值
+         已完成代码的生成
+     1>lmdb.lib(mdb.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“lmdb.lib(mdb.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>lmdb.lib(midl.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“lmdb.lib(midl.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(builder.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(builder.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(dbformat.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(dbformat.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(db_impl.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(db_impl.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(db_iter.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(db_iter.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(filename.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(filename.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(log_reader.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(log_reader.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(log_writer.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(log_writer.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(memtable.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(memtable.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(table_cache.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(table_cache.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(version_edit.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(version_edit.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(version_set.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(version_set.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(write_batch.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(write_batch.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(port_win.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(port_win.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(block.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(block.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(block_builder.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(block_builder.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(format.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(format.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(iterator.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(iterator.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(merger.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(merger.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(table.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(table.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(table_builder.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(table_builder.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(two_level_iterator.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(two_level_iterator.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(arena.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(arena.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(cache.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(cache.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(coding.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(coding.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(comparator.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(comparator.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(crc32c.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(crc32c.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(env.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(env.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(env_boost.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(env_boost.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(hash.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(hash.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(logging.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(logging.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(options.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(options.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(status.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(status.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>leveldb.lib(win_logger.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“leveldb.lib(win_logger.obj)”或在“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+         SketchBuilding.vcxproj -> E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\x64\Release\SketchBuilding.exe
+     1>已完成生成项目“E:\sketchbuilding\SketchBuilding-master\SketchBuilding-master\SketchBuilding\SketchBuilding.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:01:11.24

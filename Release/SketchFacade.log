@@ -1,0 +1,251 @@
+﻿Build started 2020/11/27 20:21:32.
+     1>Project "E:\repo_e\SketchFacade\SketchFacade\SketchFacade.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (SketchBuilding.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>QtRccSetDependencies:
+         "C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\bin\rcc.exe" --list "MainWindow.qrc" > "Release\rcc_list.txt" 2> nul
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles\Release /I.\GeneratedFiles /IC:\local\boost_1_59_0 /I. /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtCore /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtGui /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtOpenGL /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtWidgets /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtXml /I../3rdparty/include /I../src /I../include /I..\opencv\include /IC:\dev\CGAL_lib\include /I"C:\dev\CGAL-4.13.1\include" /I"C:\dev\CGAL-4.13.1\auxiliary\gmp\include" /I..\glm /I..\glew /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include" /Zi /nologo /W3 /WX- /MP /O2 /GL /D _VARIADIC_MAX=10 /D WIN32 /D NDEBUG /D _CONSOLE /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /errorReport:prompt GLWidget3D.cpp
+         GLWidget3D.cpp
+     1>E:\repo_e\SketchFacade\opencv\include\opencv2/core/mat.hpp(1965): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>E:\repo_e\SketchFacade\opencv\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>E:\repo_e\SketchFacade\opencv\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>E:\repo_e\SketchFacade\include\caffe/util/io.hpp(23): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>E:\repo_e\SketchFacade\include\caffe/util/io.hpp(36): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>E:\repo_e\SketchFacade\include\caffe/loss_layers.hpp(16): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>GLWidget3D.cpp(53): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>GLWidget3D.cpp(1215): warning C4065: switch statement contains 'default' but no 'case' labels
+     1>GLWidget3D.cpp(1564): warning C4305: 'argument' : truncation from 'double' to 'GLclampf'
+     1>GLWidget3D.cpp(1649): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\repo_e\SketchFacade\x64\Release\SketchFacade.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:../boost/lib /LIBPATH:C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib /LIBPATH:../3rdparty/lib /LIBPATH:../lib /LIBPATH:"C:\local\boost_1_59_0\lib64-msvc-12.0" /LIBPATH:../opencv/lib /LIBPATH:../glew /LIBPATH:C:\dev\CGAL_lib\lib /LIBPATH:"C:\dev\CGAL-4.13.1\auxiliary\gmp\lib" /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64" C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\qtmain.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Core.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Gui.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5OpenGL.lib opengl32.lib glu32.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Widgets.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Xml.lib glew32.lib opencv_world300.lib "libboost_thread-vc120-mt-1_59.lib" "libboost_date_time-vc120-mt-1_58.lib" "CGAL-vc120-mt-4.13.1.lib" "CGAL_Core-vc120-mt-4.13.1.lib" "CGAL_ImageIO-vc120-mt-4.13.1.lib" "libgmp-10.lib" "libmpfr-4.lib" caffelib.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib cudart.lib cublas.lib curand.lib libprotobuf.lib hdf5_tools.lib hdf5_hl_fortran.lib hdf5_fortran.lib hdf5_hl_f90cstub.lib hdf5_f90cstub.lib hdf5_cpp.lib hdf5_hl_cpp.lib hdf5_hl.lib hdf5.lib leveldb.lib cublas_device.lib cuda.lib libglog.lib lmdb.lib libopenblas.dll.a libgflags.lib opencv_world345d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\repo_e\SketchFacade\x64\Release\SketchFacade.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"E:\repo_e\SketchFacade\x64\Release\SketchFacade.lib" /MACHINE:X64 Release\Asset.obj
+         Release\BuildingSelector.obj
+         Release\Camera.obj
+         Release\CenterOperator.obj
+         Release\CGA.obj
+         Release\Circle.obj
+         Release\Classifier.obj
+         Release\ColorOperator.obj
+         Release\CompOperator.obj
+         Release\CopyOperator.obj
+         Release\CornerCutGableRoof.obj
+         Release\CornerCutOperator.obj
+         Release\CornerCutPrism.obj
+         Release\CornerCutRectangle.obj
+         Release\CornerCutTaper.obj
+         Release\Cuboid.obj
+         Release\Cylinder.obj
+         Release\CylinderSide.obj
+         Release\ExtrudeOperator.obj
+         Release\FaceSelector.obj
+         Release\GrammarDialog.obj
+         Release\Hemisphere.obj
+         Release\HemisphereOperator.obj
+         Release\InterpolationCamera.obj
+         Release\LayoutExtractor.obj
+         Release\GableRoof.obj
+         Release\GeneralObject.obj
+         Release\GLUtils.obj
+         Release\GLWidget3D.obj
+         Release\Grammar.obj
+         Release\GrammarParser.obj
+         Release\HipRoof.obj
+         Release\InnerCircleOperator.obj
+         Release\InnerSemiCircleOperator.obj
+         Release\InsertOperator.obj
+         Release\LeftWindowItemWidget.obj
+         Release\LShape.obj
+         Release\LShapePrism.obj
+         Release\LShapeTaper.obj
+         Release\MCMC.obj
+         Release\NumberEval.obj
+         Release\OBJLoader.obj
+         Release\OBJWriter.obj
+         Release\OffsetOperator.obj
+         Release\Polygon.obj
+         Release\Prism.obj
+         Release\Pyramid.obj
+         Release\PyramidOperator.obj
+         Release\Rectangle.obj
+         Release\RectangleTaper.obj
+         Release\Regression.obj
+         Release\main.obj
+         Release\MainWindow.obj
+         Release\RenderManager.obj
+         Release\RoofGableOperator.obj
+         Release\RoofHipOperator.obj
+         Release\RotateOperator.obj
+         Release\Scene.obj
+         Release\SemiCircle.obj
+         Release\SettingDialog.obj
+         Release\SetupProjectionOperator.obj
+         Release\Shader.obj
+         Release\ShadowMapping.obj
+         Release\Shape.obj
+         Release\ShapeLOperator.obj
+         Release\ShapeUOperator.obj
+         Release\SizeOperator.obj
+         Release\SplitOperator.obj
+         Release\TaperOperator.obj
+         Release\TextureOperator.obj
+         Release\TranslateOperator.obj
+         Release\UShape.obj
+         Release\UShapePrism.obj
+         Release\UShapeTaper.obj
+         Release\VBOUtil.obj
+         Release\qrc_MainWindow.obj
+         Release\moc_MainWindow.obj
+         Release\moc_GrammarDialog.obj
+         Release\moc_LeftWindowItemWidget.obj
+         Release\moc_SettingDialog.obj
+         E:\repo_e\SketchFacade\caffelib\Release\blob.obj
+         E:\repo_e\SketchFacade\caffelib\Release\common.obj
+         E:\repo_e\SketchFacade\caffelib\Release\data_reader.obj
+         E:\repo_e\SketchFacade\caffelib\Release\data_transformer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\internal_thread.obj
+         E:\repo_e\SketchFacade\caffelib\Release\layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\absval_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\accuracy_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\argmax_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\base_conv_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\base_data_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\bnll_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\bn_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\concat_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\contrastive_loss_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\conv_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\covariance_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\cudnn_conv_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\cudnn_pooling_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\cudnn_relu_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\cudnn_sigmoid_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\cudnn_softmax_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\cudnn_tanh_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\data_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\deconv_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\dropout_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\dummy_data_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\eltwise_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\embed_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\euclidean_loss_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\exp_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\filter_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\flatten_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\hdf5_data_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\hdf5_output_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\hinge_loss_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\im2col_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\image_data_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\infogain_loss_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\inner_product_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\insanity_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\local_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\log_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\loss_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\lrn_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\memory_data_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\multinomial_logistic_loss_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\mvn_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\neuron_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\normalize_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\pooling_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\power_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\prelu_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\reduction_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\relu_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\reshape_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\roi_pooling_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\sigmoid_cross_entropy_loss_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\sigmoid_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\silence_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\slice_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\smooth_L1_loss_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\softmax_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\softmax_loss_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\split_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\spp_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\tanh_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\threshold_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\tile_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\transformer_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\triplet_loss_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\window_data_layer.obj
+         E:\repo_e\SketchFacade\caffelib\Release\layer_factory.obj
+         E:\repo_e\SketchFacade\caffelib\Release\net.obj
+         E:\repo_e\SketchFacade\caffelib\Release\parallel.obj
+         E:\repo_e\SketchFacade\caffelib\Release\caffe.pb.obj
+         E:\repo_e\SketchFacade\caffelib\Release\solver.obj
+         E:\repo_e\SketchFacade\caffelib\Release\syncedmem.obj
+         E:\repo_e\SketchFacade\caffelib\Release\benchmark.obj
+         E:\repo_e\SketchFacade\caffelib\Release\blocking_queue.obj
+         E:\repo_e\SketchFacade\caffelib\Release\cudnn.obj
+         E:\repo_e\SketchFacade\caffelib\Release\db.obj
+         E:\repo_e\SketchFacade\caffelib\Release\db_leveldb.obj
+         E:\repo_e\SketchFacade\caffelib\Release\db_lmdb.obj
+         E:\repo_e\SketchFacade\caffelib\Release\force_link.obj
+         E:\repo_e\SketchFacade\caffelib\Release\hdf5.obj
+         E:\repo_e\SketchFacade\caffelib\Release\im2col.obj
+         E:\repo_e\SketchFacade\caffelib\Release\insert_splits.obj
+         E:\repo_e\SketchFacade\caffelib\Release\io.obj
+         E:\repo_e\SketchFacade\caffelib\Release\math_functions.obj
+         E:\repo_e\SketchFacade\caffelib\Release\mkstemp.obj
+         E:\repo_e\SketchFacade\caffelib\Release\signal_handler.obj
+         E:\repo_e\SketchFacade\caffelib\Release\upgrade_proto.obj
+         Generating code
+     1>e:\repo_e\sketchfacade\src\caffe\util\db.cpp(18): warning C4715: 'caffe::db::GetDB' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(138): warning C4715: 'caffe::GetSoftmaxLayer<float>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(69): warning C4715: 'caffe::GetPoolingLayer<float>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(138): warning C4715: 'caffe::GetSoftmaxLayer<double>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(69): warning C4715: 'caffe::GetPoolingLayer<double>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(39): warning C4715: 'caffe::GetConvolutionLayer<float>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(161): warning C4715: 'caffe::GetTanHLayer<float>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(115): warning C4715: 'caffe::GetSigmoidLayer<float>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(92): warning C4715: 'caffe::GetReLULayer<float>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(39): warning C4715: 'caffe::GetConvolutionLayer<double>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(161): warning C4715: 'caffe::GetTanHLayer<double>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(115): warning C4715: 'caffe::GetSigmoidLayer<double>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(92): warning C4715: 'caffe::GetReLULayer<double>' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\sketchfacade\glwidget3d.cpp(798): warning C4715: 'GLWidget3D::selectFace' : not all control paths return a value
+         Finished generating code
+     1>lmdb.lib(mdb.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'lmdb.lib(mdb.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>lmdb.lib(midl.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'lmdb.lib(midl.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(builder.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(builder.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(dbformat.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(dbformat.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(db_impl.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(db_impl.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(db_iter.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(db_iter.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(filename.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(filename.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(log_reader.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(log_reader.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(log_writer.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(log_writer.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(memtable.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(memtable.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(table_cache.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(table_cache.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(version_edit.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(version_edit.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(version_set.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(version_set.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(write_batch.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(write_batch.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(port_win.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(port_win.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(block.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(block.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(block_builder.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(block_builder.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(format.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(format.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(iterator.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(iterator.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(merger.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(merger.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(table.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(table.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(table_builder.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(table_builder.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(two_level_iterator.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(two_level_iterator.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(arena.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(arena.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(cache.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(cache.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(coding.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(coding.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(comparator.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(comparator.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(crc32c.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(crc32c.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(env.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(env.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(env_boost.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(env_boost.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(hash.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(hash.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(logging.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(logging.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(options.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(options.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(status.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(status.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>leveldb.lib(win_logger.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'leveldb.lib(win_logger.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
+         SketchFacade.vcxproj -> E:\repo_e\SketchFacade\x64\Release\SketchFacade.exe
+     1>Done Building Project "E:\repo_e\SketchFacade\SketchFacade\SketchFacade.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:01:11.03

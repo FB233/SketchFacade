@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<grammar type="facade" version="1.0" author="Gen Nishida">
+	<rule name="Border">
+		<extrude height="0.04"/>
+		<color s="#202020"/>
+	</rule>
+</grammar>
+
