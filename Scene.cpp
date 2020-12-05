@@ -71,8 +71,21 @@ void SceneObject::setGrammar(const std::string& name, const cga::Grammar& gramma
 void SceneObject::generateGeometry(RenderManager* renderManager, const std::string& stage) {
 	faces.clear();
 
+	/*if (stage == "image"){
+		cga::Rectangle*facadeframe = new cga::Rectangle("Facade", "building", glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(offset_x - (float)object_width*0.5f, offset_y - (float)object_depth*0.5f, offset_z)), glm::mat4(), object_width, object_depth, glm::vec3(1, 1, 1));
+		const glm::mat4 pivot = glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(offset_x - (float)object_width*0.5f, offset_y - (float)object_depth*0.5f, offset_z));
+		const glm::mat4& modelMat = glm::mat4();
+		glm::mat4 mat = pivot * glm::translate(modelMat, glm::vec3(object_width * 0.5, object_depth * 0.5, 0));
+		std::vector<Vertex> vertices;
+		glutils::drawQuad(object_width, object_depth, glm::vec4(1, 1, 1, 1), mat, vertices);
+		faces.push_back(boost::shared_ptr<glutils::Face>(new glutils::Face("Facade", "building", facadeframe, vertices)));
+
+		system.stack.push_back(boost::shared_ptr<cga::Shape>(facadeframe));
+	}*/
+
+
 	// if no building mass is created, don't generate geometry.
-	if (offset_x == 0 && offset_y == 0 && offset_z == 0) return;
+	//if (offset_x == 0 && offset_y == 0 && offset_z == 0) return;
 
 	if (stage == "final" || stage == "peek_final") {
 		// facadeのfloor border sizeを0にする
@@ -106,8 +119,20 @@ void SceneObject::generateGeometry(RenderManager* renderManager, const std::stri
 	}
 
 	// footprint
-	cga::Rectangle* footprint = new cga::Rectangle("Start", "building", glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(offset_x, offset_y, offset_z)), glm::mat4(), object_width, object_depth, glm::vec3(1, 1, 1));
-	system.stack.push_back(boost::shared_ptr<cga::Shape>(footprint));
+	//cga::Rectangle* footprint = new cga::Rectangle("Start", "building", glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(offset_x, offset_y, offset_z)), glm::mat4(), object_width, object_depth, glm::vec3(1, 1, 1));
+	//cga::Rectangle* footprint = new cga::Rectangle("Facade", "building", glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(offset_x, offset_y, offset_z)), glm::mat4(), object_width, object_depth, glm::vec3(1, 1, 1));
+	/*cga::Rectangle* footprint = new cga::Rectangle("Start", "facade", glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(offset_x, offset_y, offset_z)), glm::mat4(), 8, 8, glm::vec3(1, 1, 1));*/
+	//system.stack.push_back(boost::shared_ptr<cga::Shape>(footprint));
+
+	cga::Rectangle*facadeframe = new cga::Rectangle("Facade", "building", glm::translate(glm::rotate(glm::mat4(), 3.141592f * 1.0f, glm::vec3(1, 0, 0)), glm::vec3(offset_x - (float)object_width*0.5f, offset_y - (float)object_depth*0.5f, offset_z)), glm::mat4(), object_width, object_depth, glm::vec3(1, 1, 1));
+	const glm::mat4 pivot = glm::translate(glm::rotate(glm::mat4(), 3.141592f * 1.0f, glm::vec3(1, 0, 0)), glm::vec3(offset_x - (float)object_width*0.5f, offset_y - (float)object_depth*0.5f, offset_z));
+	const glm::mat4& modelMat = glm::mat4();
+	glm::mat4 mat = pivot * glm::translate(modelMat, glm::vec3(object_width * 0.5, object_depth * 0.5, 0));
+	std::vector<Vertex> vertices;
+	glutils::drawQuad(object_width, object_depth, glm::vec4(1, 1, 1, 1), mat, vertices);
+	faces.push_back(boost::shared_ptr<glutils::Face>(new glutils::Face("Facade", "building", facadeframe, vertices)));
+
+	system.stack.push_back(boost::shared_ptr<cga::Shape>(facadeframe));
 
 	//system->derive(grammar, true);
 	if (stage == "final" || stage == "peek_final") {

@@ -12,6 +12,7 @@
 #include "ShadowMapping.h"
 #include "RenderManager.h"
 #include "CGA.h"
+#include "Rectangle.h"
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -70,6 +71,7 @@ public:
 	MainWindow* mainWin;
 	QImage sketch;
 	QImage image;
+	QImage temp;
 	QImage imageOrig;
 	std::vector<std::vector<glm::vec2> > strokes;
 	std::vector<std::vector<float> > stroke_widths;
@@ -110,6 +112,8 @@ public:
 	InterpolationCamera intCamera;
 	QTimer* camera_timer;
 
+	cga::Rectangle* facadeframe;
+
 public:
 	GLWidget3D(QWidget* parent);
 	~GLWidget3D();
@@ -120,6 +124,7 @@ public:
 	void drawScene();
 	void clearBackground();
 	void loadImage(const QString& filename);
+	void Generatefacadeframe(const QString& filename);
 	void loadCGA(char* filename);
 	void generateGeometry();
 	void generateGeometry(int selectedBuilding);
@@ -127,7 +132,7 @@ public:
 	void selectOption(int option_index);
 
 	void updateBuildingOptions();
-	void updateRoofOptions();
+	void updateImageOptions();
 	void updateFacadeOptions();
 	void updateFloorOptions();
 	void updateWindowOptions();
@@ -142,7 +147,7 @@ public:
 
 	bool selectFace(const glm::vec2& mouse_pos);
 	bool selectStageAndFace(const glm::vec2& mouse_pos);
-	void selectFaceForBuilding();
+	void selectFaceForImage();
 	void selectFaceForRoof();
 	void selectFaceForFacade();
 	void selectFaceForFloor();

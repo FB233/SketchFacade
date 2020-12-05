@@ -1,23 +1,12 @@
-﻿Build started 2020/11/27 20:21:32.
+﻿Build started 2020/12/4 15:48:22.
      1>Project "E:\repo_e\SketchFacade\SketchFacade\SketchFacade.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (SketchBuilding.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>QtRccSetDependencies:
          "C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\bin\rcc.exe" --list "MainWindow.qrc" > "Release\rcc_list.txt" 2> nul
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles\Release /I.\GeneratedFiles /IC:\local\boost_1_59_0 /I. /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtCore /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtGui /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtOpenGL /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtWidgets /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtXml /I../3rdparty/include /I../src /I../include /I..\opencv\include /IC:\dev\CGAL_lib\include /I"C:\dev\CGAL-4.13.1\include" /I"C:\dev\CGAL-4.13.1\auxiliary\gmp\include" /I..\glm /I..\glew /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include" /Zi /nologo /W3 /WX- /MP /O2 /GL /D _VARIADIC_MAX=10 /D WIN32 /D NDEBUG /D _CONSOLE /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /errorReport:prompt GLWidget3D.cpp
-         GLWidget3D.cpp
-     1>E:\repo_e\SketchFacade\opencv\include\opencv2/core/mat.hpp(1965): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-     1>E:\repo_e\SketchFacade\opencv\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-     1>E:\repo_e\SketchFacade\opencv\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-     1>E:\repo_e\SketchFacade\include\caffe/util/io.hpp(23): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
-     1>E:\repo_e\SketchFacade\include\caffe/util/io.hpp(36): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
-     1>E:\repo_e\SketchFacade\include\caffe/loss_layers.hpp(16): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>GLWidget3D.cpp(53): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>GLWidget3D.cpp(1215): warning C4065: switch statement contains 'default' but no 'case' labels
-     1>GLWidget3D.cpp(1564): warning C4305: 'argument' : truncation from 'double' to 'GLclampf'
-     1>GLWidget3D.cpp(1649): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles\Release /I.\GeneratedFiles /IC:\local\boost_1_59_0 /I. /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtCore /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtGui /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtOpenGL /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtWidgets /IC:\Qt\Qt5.9.7\5.9.7\msvc2017_64\include\QtXml /I../3rdparty/include /I../src /I../include /I..\opencv\include /IC:\dev\CGAL_lib\include /I"C:\dev\CGAL-4.13.1\include" /I"C:\dev\CGAL-4.13.1\auxiliary\gmp\include" /I..\glm /I..\glew /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include" /Zi /nologo /W3 /WX- /MP /O2 /GL /D _VARIADIC_MAX=10 /D WIN32 /D NDEBUG /D _CONSOLE /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /errorReport:prompt Scene.cpp
+         Scene.cpp
+     1>Scene.cpp(184): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\repo_e\SketchFacade\x64\Release\SketchFacade.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:../boost/lib /LIBPATH:C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib /LIBPATH:../3rdparty/lib /LIBPATH:../lib /LIBPATH:"C:\local\boost_1_59_0\lib64-msvc-12.0" /LIBPATH:../opencv/lib /LIBPATH:../glew /LIBPATH:C:\dev\CGAL_lib\lib /LIBPATH:"C:\dev\CGAL-4.13.1\auxiliary\gmp\lib" /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64" C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\qtmain.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Core.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Gui.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5OpenGL.lib opengl32.lib glu32.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Widgets.lib C:\Qt\Qt5.9.7\5.9.7\msvc2017_64\lib\Qt5Xml.lib glew32.lib opencv_world300.lib "libboost_thread-vc120-mt-1_59.lib" "libboost_date_time-vc120-mt-1_58.lib" "CGAL-vc120-mt-4.13.1.lib" "CGAL_Core-vc120-mt-4.13.1.lib" "CGAL_ImageIO-vc120-mt-4.13.1.lib" "libgmp-10.lib" "libmpfr-4.lib" caffelib.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib cudart.lib cublas.lib curand.lib libprotobuf.lib hdf5_tools.lib hdf5_hl_fortran.lib hdf5_fortran.lib hdf5_hl_f90cstub.lib hdf5_f90cstub.lib hdf5_cpp.lib hdf5_hl_cpp.lib hdf5_hl.lib hdf5.lib leveldb.lib cublas_device.lib cuda.lib libglog.lib lmdb.lib libopenblas.dll.a libgflags.lib opencv_world345d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\repo_e\SketchFacade\x64\Release\SketchFacade.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"E:\repo_e\SketchFacade\x64\Release\SketchFacade.lib" /MACHINE:X64 Release\Asset.obj
          Release\BuildingSelector.obj
@@ -206,7 +195,7 @@
      1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(161): warning C4715: 'caffe::GetTanHLayer<double>' : not all control paths return a value
      1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(115): warning C4715: 'caffe::GetSigmoidLayer<double>' : not all control paths return a value
      1>e:\repo_e\sketchfacade\src\caffe\layer_factory.cpp(92): warning C4715: 'caffe::GetReLULayer<double>' : not all control paths return a value
-     1>e:\repo_e\sketchfacade\sketchfacade\glwidget3d.cpp(798): warning C4715: 'GLWidget3D::selectFace' : not all control paths return a value
+     1>e:\repo_e\sketchfacade\sketchfacade\glwidget3d.cpp(835): warning C4715: 'GLWidget3D::selectFace' : not all control paths return a value
          Finished generating code
      1>lmdb.lib(mdb.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'lmdb.lib(mdb.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
      1>lmdb.lib(midl.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'lmdb.lib(midl.obj)' or at 'E:\repo_e\SketchFacade\x64\Release\vc120.pdb'; linking object as if no debug info
@@ -248,4 +237,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:01:11.03
+Time Elapsed 00:01:16.65

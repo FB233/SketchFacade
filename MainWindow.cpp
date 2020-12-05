@@ -43,9 +43,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 	// create tool bar for stages
 	QActionGroup* stageGroup = new QActionGroup(this);
 	//std::string stage_names[7] = { "building", "roof", "facade", "floor", "window", "ledge", "final" };
-	std::string stage_names[4] = { "facade", "floor", "window", "final" };
+	std::string stage_names[5] = { "image","facade", "floor", "window", "final" };
 	//for (int i = 0; i < 7; ++i) {
-	for (int i = 0; i < 4; ++i) {
+	for (int i = 0; i < 5; ++i) {
 		actionStages[stage_names[i]] = new QAction(QIcon(std::string("resources/" + stage_names[i] + ".png").c_str()), std::string("&" + stage_names[i]).c_str(), this);
 		actionStages[stage_names[i]]->setCheckable(true);
 		stageGroup->addAction(actionStages[stage_names[i]]);
@@ -124,7 +124,7 @@ void MainWindow::onClearSketch() {
 	glWidget->clearSketch();
 
 	//if (glWidget->stage == "building") {
-	if (glWidget->stage == "facade") {
+	if (glWidget->stage == "image") {
 		glWidget->scene.clearCurrentObject();
 	}
 }
@@ -134,9 +134,11 @@ void MainWindow::onOpenImage() {
 	if (filename.isEmpty()) return;
 
 	glWidget->clearGeometry();
+	glWidget->clearBackground();
 	glWidget->loadImage(filename.toUtf8().constData());
-
+	glWidget->Generatefacadeframe(filename.toUtf8().constData());
 	setWindowTitle("Image - " + filename);
+	glWidget->update();
 }
 
 void MainWindow::onOpenCGA() {
@@ -250,9 +252,12 @@ void MainWindow::onStageChanged() {
 		else if (actionStages["roof"]->isChecked()) {
 			glWidget->changeStage("roof");
 		}*/
-	      if (actionStages["facade"]->isChecked()) {
-			glWidget->changeStage("facade");
+	      if (actionStages["image"]->isChecked()) {
+			glWidget->changeStage("image");
 		}
+		else if (actionStages["facade"]->isChecked()) {
+			  glWidget->changeStage("facade");
+	    }
 		else if (actionStages["floor"]->isChecked()) {
 			glWidget->changeStage("floor");
 		}

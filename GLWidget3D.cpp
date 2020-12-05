@@ -36,6 +36,7 @@ GLWidget3D::GLWidget3D(QWidget *parent) : QGLWidget(QGLFormat(QGL::SampleBuffers
 	pen_pressure = 0.5;
 	showGroundPlane = true;
 	camera_timer = NULL;
+	image_loaded = false;
 	geometryGenerated = false;
 	// this flag is for workaround.
 	// Qt should not call TabletEvent and MouseEvent at the same time, but it actually calls both events.
@@ -54,10 +55,10 @@ GLWidget3D::GLWidget3D(QWidget *parent) : QGLWidget(QGLFormat(QGL::SampleBuffers
 	glm::mat4 light_mvMatrix = glm::lookAt(-light_dir * 50.0f, glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 	light_mvpMatrix = light_pMatrix * light_mvMatrix;
 
-	std::string stage_names[6] = { "building", "roof", "facade", "floor", "window", "ledge" };
+	std::string stage_names[6] = { /*"building", "roof", */"facade", "floor", "window"/*"ledge" */};
 
 	// load grammars and their thumbnail images
-	for (int i = 0; i < 6; ++i) {
+	for (int i = 0; i < 3; ++i) {
 		{
 			QStringList filters;
 			filters << "*.xml";
@@ -183,6 +184,8 @@ void GLWidget3D::clearSketch() {
 }
 
 void GLWidget3D::clearGeometry() {
+	renderManager.removeObjects();
+	renderManager.updateShadowMap(this, light_dir, light_mvpMatrix);
 	scene.clear();
 	generateGeometry();
 	geometryGenerated = false;
@@ -215,8 +218,9 @@ void GLWidget3D::clearBackground() {
 
 void GLWidget3D::loadImage(const QString& filename) {
 	// make the image square size
-	QImage temp;
+	//QImage temp;
 	temp.load(filename);
+	std::cout <<"temp"<< temp.width() << "  "<<temp.height() << std::endl;
 	imageOrig = QImage(std::max(temp.width(), temp.height()), std::max(temp.width(), temp.height()), QImage::Format_RGB32);
 	imageOrig.fill(QColor(255, 255, 255));
 	QPainter temp_painter(&imageOrig);
@@ -226,12 +230,12 @@ void GLWidget3D::loadImage(const QString& filename) {
 
 	float scale = std::min((float)width() / imageOrig.width(), (float)height() / imageOrig.height());
 	QImage newImage = imageOrig.scaled(imageOrig.width() * scale, imageOrig.height() * scale);
-
+	std::cout << "newImage" << newImage.width() << "  " << newImage.height() << std::endl;
 	image = QImage(width(), height(), QImage::Format_RGB32);
 	image.fill(QColor(255, 255, 255));
 	QPainter painter(&image);
 	painter.drawImage((width() - newImage.width()) / 2, (height() - newImage.height()) / 2, newImage);
-
+	std::cout << "image" << image.width() << "  " << image.height() << std::endl;
 	//opacityOfBackground = 1.0f;
 	geometryGenerated = false;
 
@@ -240,16 +244,41 @@ void GLWidget3D::loadImage(const QString& filename) {
 	update();
 }
 
+void GLWidget3D::Generatefacadeframe(const QString& filename){
+	if (image_loaded){
+		/*renderManager.removeObjects();
+		std::vector<Vertex> vertices;
+		glutils::drawQuad((float)temp.width() / 100, (float)temp.height()/100, glm::vec4(1, 1, 1, 1), glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(0, 0, -10)), vertices);*/
+		// facadeframe = new cga::Rectangle("Facade", "building", glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(0, 0, 0)), glm::mat4(), (float)temp.width() / 100, (float)temp.height() / 100, glm::vec3(1, 1, 1));
+	/*	scene.currentObject().system.stack.push_back(boost::shared_ptr<cga::Shape>(facadeframe));
+		scene.currentObject().faces.push_back(boost::shared_ptr<glutils::Face>(new glutils::Face("Facade", "building", facadeframe, vertices)));
+		renderManager.addFaces(scene.currentObject().faces);*/
+		/*renderManager.addObject("Facade", "", vertices, false);*/
+
+		
+		/*scene.currentObject().setFootprint(0.01, 0.01, current_z, (float)temp.width() / 100, (float)temp.height() / 100);
+		scene.currentObject().setGrammar("Start", grammars["facade"][0]);
+		scene.currentObject().generateGeometry(&renderManager, stage);
+		scene.currentObject().updateGeometry(&renderManager, stage);*/
+		//generateGeometry();
+		/*mainWin->grammarDialog->updateGrammar();
+
+		update();*/
+		update();
+	}
+}
+
 void GLWidget3D::loadCGA(char* filename) {
 	renderManager.removeObjects();
-	
+	/*camera.pos = glm::vec3(0, 0, 7);
+	camera.updateMVPMatrix();*/
 	try {
 		cga::Grammar grammar;
 		cga::parseGrammar(filename, grammar);
 		cga::CGA::randomParamValues(grammar);
 
 		sc::SceneObject so(&scene);
-		so.setFootprint(0, 0, 0, 16, 12);
+		so.setFootprint(0.01, 0.01, 0, 2, 2);
 
 		std::vector<float> params(10);
 		for (int i = 0; i < params.size(); ++i) params[i] = 0.5f;
@@ -259,6 +288,7 @@ void GLWidget3D::loadCGA(char* filename) {
 
 		cga::CGA system;
 		so.generateGeometry(&renderManager, "");
+		so.updateGeometry(&renderManager, "");
 	}
 	catch (const std::string& ex) {
 		std::cout << "ERROR:" << std::endl << ex << std::endl;
@@ -277,9 +307,12 @@ void GLWidget3D::generateGeometry() {
 
 	// add a ground plane
 	if (showGroundPlane) {
-		std::vector<Vertex> vertices;
-		glutils::drawGrid(50, 50, 2.5, glm::vec4(0.521, 0.815, 0.917, 1), glm::vec4(0.898, 0.933, 0.941, 1), glm::rotate(glm::mat4(), -3.1415926f * 0.5f, glm::vec3(1, 0, 0)), vertices);
-		renderManager.addObject("grid", "", vertices, false);
+		/*std::vector<Vertex> vertices;
+		glutils::drawGrid(50, 50, 2.5, glm::vec4(0.521, 0.815, 0.917, 1), glm::vec4(0.898, 0.933, 0.941, 1), glm::rotate(glm::mat4(), -3.1415926f * 2.0f, glm::vec3(1, 0, 0)), vertices);
+		renderManager.addObject("grid", "", vertices, false);*/
+
+		/*glutils::drawQuad(10, 10, glm::vec4(1, 1, 1, 1), glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(0, 0, -10)), vertices);
+		renderManager.addObject("Facade", "", vertices, false);*/
 	}
 
 	renderManager.updateShadowMap(this, light_dir, light_mvpMatrix);
@@ -290,9 +323,11 @@ void GLWidget3D::generateGeometry(int selectedBuilding) {
 
 	// add a ground plane
 	if (showGroundPlane) {
-		std::vector<Vertex> vertices;
-		glutils::drawGrid(50, 50, 2.5, glm::vec4(0.521, 0.815, 0.917, 1), glm::vec4(0.898, 0.933, 0.941, 1), glm::rotate(glm::mat4(), -3.1415926f * 0.5f, glm::vec3(1, 0, 0)), vertices);
-		renderManager.addObject("grid", "", vertices, false);
+		/*std::vector<Vertex> vertices;
+		glutils::drawGrid(50, 50, 2.5, glm::vec4(0.521, 0.815, 0.917, 1), glm::vec4(0.898, 0.933, 0.941, 1), glm::rotate(glm::mat4(), -3.1415926f * 2.0f, glm::vec3(1, 0, 0)), vertices);
+		renderManager.addObject("grid", "", vertices, false);*/
+		/*glutils::drawQuad(10, 10, glm::vec4(1, 1, 1, 1), glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(0, 0, -10)), vertices);
+		renderManager.addObject("Facade", "", vertices, false);*/
 	}
 
 	renderManager.updateShadowMap(this, light_dir, light_mvpMatrix);
@@ -303,9 +338,11 @@ void GLWidget3D::updateGeometry() {
 
 	// add a ground plane
 	if (showGroundPlane) {
-		std::vector<Vertex> vertices;
-		glutils::drawGrid(50, 50, 2.5, glm::vec4(0.521, 0.815, 0.917, 1), glm::vec4(0.898, 0.933, 0.941, 1), glm::rotate(glm::mat4(), -3.1415926f * 0.5f, glm::vec3(1, 0, 0)), vertices);
-		renderManager.addObject("grid", "", vertices, false);
+		/*std::vector<Vertex> vertices;
+		glutils::drawGrid(50, 50, 2.5, glm::vec4(0.521, 0.815, 0.917, 1), glm::vec4(0.898, 0.933, 0.941, 1), glm::rotate(glm::mat4(), -3.1415926f * 2.0f, glm::vec3(1, 0, 0)), vertices);
+		renderManager.addObject("grid", "", vertices, false);*/
+		/*glutils::drawQuad(10, 10, glm::vec4(1, 1, 1, 1), glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(0, 0, -10)), vertices);
+		renderManager.addObject("Facade", "", vertices, false);*/
 	}
 
 	renderManager.updateShadowMap(this, light_dir, light_mvpMatrix);
@@ -315,13 +352,13 @@ void GLWidget3D::selectOption(int option_index) {
 	userStatistics.numNonBestSelected++;
 	updateStats();
 
-	if (stage == "building") {
+	/*if (stage == "building") {
 		predictBuilding(option_index);
-	} 
-	else if (stage == "roof") {
+	} */
+	/*else if (stage == "roof") {
 		predictRoof(option_index);
-	} 
-	else if (stage == "facade") {
+	} */
+	/*else*/ if (stage == "facade") {
 		if (scene.faceSelector->selected()) {
 			scene.currentObject().setGrammar(scene.faceSelector->selectedFaceName(), grammars["facade"][option_index]);
 			generateGeometry();
@@ -336,9 +373,9 @@ void GLWidget3D::selectOption(int option_index) {
 	else if (stage == "window") {
 		predictWindow(option_index);
 	} 
-	else if (stage == "ledge") {
+	/*else if (stage == "ledge") {
 		predictLedge(option_index);
-	}
+	}*/
 
 	update();
 }
@@ -371,36 +408,34 @@ void GLWidget3D::updateBuildingOptions() {
 	update();
 }
 
-void GLWidget3D::updateRoofOptions() {
+void GLWidget3D::updateImageOptions() {
 	mainWin->thumbsList->clear();
 
-	time_t start = clock();
+	renderManager.removeObjects();
+    //facadeframe = new cga::Rectangle("Facade", "building", glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(0, 0, 0)), glm::mat4(), (float)temp.width() / 100, (float)temp.height() / 100, glm::vec3(1, 1, 1));
+	scene.currentObject().setFootprint(0, 0, current_z, (float)temp.width() / 100, (float)temp.height() / 100);
+	//scene.currentObject().setGrammar(scene.faceSelector->selectedFaceName(), grammars["roof"][grammar_id], params, true);
+	generateGeometry();
 
-	cv::Mat img;
-	convertSketch(false, img);
-	std::vector<Prediction> predictions = classifiers["roof"]->Classify(img, 10);
-
-	time_t end = clock();
-	std::cout << "Duration of classification: " << (double)(end - start) / CLOCKS_PER_SEC << "sec." << std::endl;
-
-	QPainter painter(&sketch);
-	int bestIndex;
-	for (int i = 0; i < predictions.size(); ++i) {
-		Prediction p = predictions[i];
-		mainWin->addListItem(QString::number(p.second, 'f', 3), grammarImages["roof"][p.first], p.first);
-
-		if (i == 0) {
-			bestIndex = p.first;
-		}
-	}
-
-	predictRoof(bestIndex);
+	// updte the grammar window
+	mainWin->grammarDialog->updateGrammar();
 
 	update();
 }
 
 void GLWidget3D::updateFacadeOptions() {
 	mainWin->thumbsList->clear();
+
+	/*scene.currentObject().setFootprint(0.01, 0.01, 0, 20, 20);
+	scene.currentObject().setGrammar("Start", grammars["facade"][0]);
+	scene.currentObject().generateGeometry(&renderManager, stage);
+	scene.currentObject().updateGeometry(&renderManager, stage);*/
+	
+	/*std::vector<Vertex> vertices;
+	glutils::drawQuad(10, 10, glm::vec4(1, 1, 1, 1), glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(0, 0, -10)), vertices);
+	cga::Rectangle* footprint = new cga::Rectangle("Start", "building", glm::translate(glm::rotate(glm::mat4(), -3.141592f * 0.5f, glm::vec3(1, 0, 0)), glm::vec3(0,0, 0)), glm::mat4(), 8, 8, glm::vec3(1, 1, 1));
+	scene.currentObject().faces.push_back(boost::shared_ptr<glutils::Face>(new glutils::Face("Facade", "building", footprint, vertices)));
+	renderManager.addFaces(scene.currentObject().faces);*/
 
 	std::pair<int, std::vector<float> > result = LayoutExtractor::extractFacadePattern(width(), height(), strokes, scene.faceSelector->selectedFaceCopy(), camera.mvpMatrix);
 
@@ -613,7 +648,9 @@ void GLWidget3D::predictFacade(int grammar_id, const std::vector<float>& params)
 	}
 
 	// set grammar
+	/*scene.currentObject().setFootprint(1, 1, 0, 8, 8);*/
 	scene.currentObject().setGrammar(scene.faceSelector->selectedFaceName(), grammars["facade"][grammar_id], params, false);
+	/*scene.currentObject().setGrammar("Start", grammars["facade"][grammar_id], params, true);*/
 	generateGeometry();
 
 	// updte the grammar window
@@ -734,23 +771,23 @@ bool GLWidget3D::selectFace(const glm::vec2& mouse_pos) {
 	// view direction
 	glm::vec3 view_dir = viewVector(mouse_pos, camera.mvMatrix, camera.f(), camera.aspect());
 
-	if (stage == "building") {
+	if (stage == "image") {
 		if (scene.faceSelector->selectFace(cameraPos, view_dir, stage, glm::vec3(0, 1, 0))) {
 			scene.newObject();
 
-			selectFaceForBuilding();
+			selectFaceForImage();
 		}
 		else {
 			scene.newObject();
 
 			// shift the camera such that the ground plane becomes really a ground plane.
-			intCamera = InterpolationCamera(camera, 30, -45, 0, computeDownwardedCameraPos(CAMERA_DEFAULT_HEIGHT, CAMERA_DEFAULT_DEPTH, intCamera.camera_end.xrot));
+			intCamera = InterpolationCamera(camera, 90, 0, 0, glm::vec3(0, 0, 20));
 			current_z = 0;
 		}
 
 		return true;
 	}
-	else if (stage == "roof") {
+	/*else if (stage == "roof") {
 		if (scene.faceSelector->selectFace(cameraPos, view_dir, stage, glm::vec3(0, 1, 0))) {
 			selectFaceForRoof();
 			return true;
@@ -758,7 +795,7 @@ bool GLWidget3D::selectFace(const glm::vec2& mouse_pos) {
 		else {
 			return false;
 		}
-	}
+	}*/
 	else if (stage == "facade") {
 		if (scene.faceSelector->selectFace(cameraPos, view_dir, stage, glm::vec3(1, 0, 1))) {
 			selectFaceForFacade();
@@ -786,7 +823,7 @@ bool GLWidget3D::selectFace(const glm::vec2& mouse_pos) {
 			return false;
 		}
 	}
-	else if (stage == "ledge") {
+	/*else if (stage == "ledge") {
 		if (scene.faceSelector->selectFace(cameraPos, view_dir, stage, glm::vec3(1, 0, 1))) {
 			selectFaceForLedge();
 			return true;
@@ -794,7 +831,7 @@ bool GLWidget3D::selectFace(const glm::vec2& mouse_pos) {
 		else {
 			return false;
 		}
-	}
+	}*/
 }
 
 /**
@@ -853,9 +890,9 @@ bool GLWidget3D::selectStageAndFace(const glm::vec2& mouse_pos) {
 	return false;
 }
 
-void GLWidget3D::selectFaceForBuilding() {
+void GLWidget3D::selectFaceForImage() {
 	// shift the camera such that the selected face becomes a ground plane.
-	intCamera = InterpolationCamera(camera, 30, -45, 0, computeDownwardedCameraPos(scene.faceSelector->selectedFace()->vertices[0].position.y + CAMERA_DEFAULT_HEIGHT, CAMERA_DEFAULT_DEPTH, 30.0f));
+	intCamera = InterpolationCamera(camera, 0, 0, 0, computeDownwardedCameraPos(scene.faceSelector->selectedFace()->vertices[0].position.y + 0, 20, 30.0f));
 	current_z = scene.faceSelector->selectedFace()->vertices[0].position.y;
 
 	scene.faceSelector->selectedFace()->select();
@@ -1052,24 +1089,24 @@ void GLWidget3D::changeStage(const std::string& stage) {
 	scene.buildingSelector->unselectBuilding();
 	scene.faceSelector->unselect();
 
-	if (stage == "building") {
-		intCamera = InterpolationCamera(camera, 30, -45, 0, glm::vec3(0, CAMERA_DEFAULT_HEIGHT, CAMERA_DEFAULT_DEPTH));
+	if (stage == "image") {
+		intCamera = InterpolationCamera(camera, 0, 0, 0, glm::vec3(0, 0, 20));
 		current_z = 0.0f;
 
 		camera_timer = new QTimer(this);
 		connect(camera_timer, SIGNAL(timeout()), mainWin, SLOT(camera_update()));
 		camera_timer->start(20);
 	}
-	else if (stage == "roof") {
-	}
+	/*else if (stage == "roof") {
+	}*/
 	else if (stage == "facade") {
 	}
 	else if (stage == "floor") {
 	}
 	else if (stage == "window") {
 	}
-	else if (stage == "ledge") {
-	}
+	/*else if (stage == "ledge") {
+	}*/
 	else if (stage == "final") {
 		renderManager.renderingMode = RenderManager::RENDERING_MODE_SSAO;
 		generateGeometry();
@@ -1093,7 +1130,7 @@ void GLWidget3D::changeMode(int new_mode) {
 	else if (new_mode == MODE_ERASER) {
 		clearSketch();
 
-		if (stage == "building") {
+		if (stage == "image") {
 			scene.clearCurrentObject();
 		}
 
@@ -1164,30 +1201,30 @@ void GLWidget3D::warmup() {
 
 	cv::Mat img;
 	convertSketch(false, img);
-	classifiers["building"]->Classify(img, 10);
-	classifiers["roof"]->Classify(img, 10);
+	/*classifiers["building"]->Classify(img, 10);
+	classifiers["roof"]->Classify(img, 10);*/
 	classifiers["window"]->Classify(img, 10);
-	classifiers["ledge"]->Classify(img, 10);
+	/*classifiers["ledge"]->Classify(img, 10);*/
 
 	//disaplay_memory_usage();
 
 	cv::Mat img2;
 	convertSketch(true, img2);
-	for (int i = 0; i < regressions["building"].size(); ++i) {
+	/*for (int i = 0; i < regressions["building"].size(); ++i) {
 		regressions["building"][i]->Predict(img2);
 	}
 
 	for (int i = 0; i < regressions["roof"].size(); ++i) {
 		regressions["roof"][i]->Predict(img2);
-	}
+	}*/
 
 	for (int i = 0; i < regressions["window"].size(); ++i) {
 		regressions["window"][i]->Predict(img2);
 	}
 
-	for (int i = 0; i < regressions["ledge"].size(); ++i) {
+	/*for (int i = 0; i < regressions["ledge"].size(); ++i) {
 		regressions["ledge"][i]->Predict(img2);
-	}
+	}*/
 
 	disaplay_memory_usage();
 
@@ -1350,11 +1387,11 @@ void GLWidget3D::mouseReleaseEvent(QMouseEvent* e) {
 			update();
 		}
 		else if (e->button() == Qt::LeftButton) {
-			if (stage == "building") {
+			/*if (stage == "building") {
 				if (strokes.size() >= 3) updateBuildingOptions();
-			}
-			else if (stage == "roof") {
-				updateRoofOptions();
+			}*/
+			if (stage == "image") {
+				updateImageOptions();
 			}
 			else if (stage == "facade") {
 				updateFacadeOptions();
@@ -1365,9 +1402,9 @@ void GLWidget3D::mouseReleaseEvent(QMouseEvent* e) {
 			else if (stage == "window") {
 				updateWindowOptions();
 			}
-			else if (stage == "ledge") {
+			/*else if (stage == "ledge") {
 				updateLedgeOptions();
-			}
+			}*/
 		}
 	}
 }
@@ -1422,32 +1459,32 @@ void GLWidget3D::mouseMoveEvent(QMouseEvent* e) {
 
 		update();
 	}
-	else {
-		if (e->y() > height() - BOTTOM_AREA_HEIGHT) {
-			if (stage != "peek_final") {
-				preStage = stage;
-				preRenderingMode = renderManager.renderingMode;
-				stage = "peek_final";
-				renderManager.renderingMode = RenderManager::RENDERING_MODE_SSAO;
+	//else {
+	//	if (e->y() > height() - BOTTOM_AREA_HEIGHT) {
+	//		if (stage != "peek_final") {
+	//			preStage = stage;
+	//			preRenderingMode = renderManager.renderingMode;
+	//			stage = "peek_final";
+	//			renderManager.renderingMode = RenderManager::RENDERING_MODE_SSAO;
 
-				// generate final geometry
-				generateGeometry();
+	//			// generate final geometry
+	//			generateGeometry();
 
-				update();
-			}
-		}
-		else {
-			if (stage == "peek_final") {
-				stage = preStage;
-				renderManager.renderingMode = preRenderingMode;
+	//			update();
+	//		}
+	//	}
+	//	else {
+	//		if (stage == "peek_final") {
+	//			stage = preStage;
+	//			renderManager.renderingMode = preRenderingMode;
 
-				// generate geometry
-				generateGeometry();
+	//			// generate geometry
+	//			generateGeometry();
 
-				update();
-			}
-		}
-	}
+	//			update();
+	//		}
+	//	}
+	//}
 }
 
 /**
@@ -1504,17 +1541,22 @@ void GLWidget3D::initializeGL() {
 	
 	/*camera.xrot = 30.0f;
 	camera.yrot = -45.0f;
-	camera.zrot = 0.0f;*/
-	camera.xrot = 90.0f;
+	camera.zrot = 0.0f;
+	camera.pos = computeDownwardedCameraPos(CAMERA_DEFAULT_HEIGHT, CAMERA_DEFAULT_DEPTH, camera.xrot);*/
+	camera.xrot = 0.0f;
 	camera.yrot = 0.0f;
 	camera.zrot = 0.0f;
-	//camera.pos = computeDownwardedCameraPos(CAMERA_DEFAULT_HEIGHT, CAMERA_DEFAULT_DEPTH, camera.xrot);
-	camera.pos = glm::vec3(0, 0, 5.0f);
+	camera.pos = glm::vec3(0, 0, 20.0f);
 	current_z = 0.0f;
 
 	//changeStage("building");
-	stage = "facade";
+	stage = "image";
 	//stage = "building";
+
+	//需要有至少一个OpenGL Object才能调用paintevent
+	std::vector<Vertex> vertices;
+	glutils::drawQuad(0, 0, glm::vec4(1, 1, 1, 1), glm::mat4(), vertices);
+	renderManager.addObject("dummy", "", vertices, true);
 
 	generateGeometry();
 
@@ -1536,12 +1578,12 @@ void GLWidget3D::resizeGL(int width, int height) {
 	// resize image
 	float scale = std::min((float)width / imageOrig.width(), (float)height / imageOrig.height());
 	QImage newImage1 = imageOrig.scaled(imageOrig.width() * scale, imageOrig.height() * scale);
-
+	std::cout << "newImage1" << newImage1.width() << "  " << newImage1.height() << std::endl;
 	image = QImage(width, height, QImage::Format_RGB32);
 	image.fill(QColor(255, 255, 255));
 	QPainter painter(&image);
 	painter.drawImage((width - newImage1.width()) / 2, (height - newImage1.height()) / 2, newImage1);
-
+	std::cout << "Image" << image.width() << "  " << image.height() << std::endl;
 	QImage newImage(width, height, QImage::Format_RGB888);
 	newImage.fill(qRgba(255, 255, 255, 255));
 	sketch = newImage;
@@ -1793,15 +1835,15 @@ void GLWidget3D::paintEvent(QPaintEvent* e) {
 	// draw sketch
 	QPainter painter(this);
 	// draw background image
-	/*if (image_loaded) {
+	if (image_loaded) {
 		if (geometryGenerated) {
 			painter.setOpacity(0.5f);
 		}
 		else {
-			painter.setOpacity(1.0f);
-		}
+			painter.setOpacity(0.5f);
+		} 
 		painter.drawImage(0, 0, image);
-	}*/
+	}
 
 	QPen pen(Qt::blue, 3);
 	painter.setPen(pen);
@@ -1824,12 +1866,12 @@ void GLWidget3D::paintEvent(QPaintEvent* e) {
 	}
 
 	// draw the bottom area
-	painter.setOpacity(0.6);
+	/*painter.setOpacity(0.6);
 	QRect bottomArea(0, height() - BOTTOM_AREA_HEIGHT, width(), BOTTOM_AREA_HEIGHT);
 	painter.fillRect(bottomArea, Qt::white);
 	QFont font = painter.font();
 	font.setPointSize(font.pointSize() * 3);
-	painter.setFont(font);
+	painter.setFont(font);*/
 	//painter.drawText(bottomArea, Qt::AlignCenter | Qt::AlignVCenter, tr("Peek a final view"));
 	painter.end();
 
